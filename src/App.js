@@ -33,11 +33,23 @@ handleSubmit = (e) => {
   })
 }
 
+deleteAllList = () => {
+  this.setState({
+    items: []
+  })
+}
+
+itemDelete = (id) => {
+  const filteredItems = this.state.items.filter(item => (item.id !== id))
+  this.setState({
+    items: filteredItems
+  })
+}
 render() {
   return (
     <div className={styles.mainDiv}>
       <Input item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-      <List items={this.state.items}/>
+      <List items={this.state.items} deleteAllList={this.deleteAllList} itemDelete={this.itemDelete}/>
     </div>
   );
 }

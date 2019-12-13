@@ -3,18 +3,20 @@ import Item from './Item';
 
 class List extends Component {
     render() {
-        const { items } = this.props;
+        const { items, deleteAllList, itemDelete } = this.props;
         console.log(items);
         return(
             <div>
               {
     items.map(item => {
         return(
-            <Item key={item.id} item={item.item} id={item.id}/>
+            <Item key={item.id} item={item.item} id={item.id} itemDelete={() => itemDelete(item.id)}/>
             
         )
     })
 }
+
+<button onClick={deleteAllList}>DELETE ALL ITEMS</button>
            
              
             </div>

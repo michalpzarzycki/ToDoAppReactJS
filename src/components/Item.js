@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class Item extends Component {
     render() {
-        const { item } = this.props;
+        const { item, itemDelete } = this.props;
         return(
             <div>
     <p>{item}</p>
-                <button>DELETE</button>
+                <button onClick={itemDelete}>DELETE</button>
                 <button>EDIT</button>
             </div>
         );
