@@ -16,7 +16,7 @@ class List extends Component {
     })
 }
 
-<button onClick={deleteAllList}>DELETE ALL ITEMS</button>
+<button className="btn btn-outline-danger"onClick={deleteAllList}>DELETE ALL ITEMS</button>
            
              
             </div>

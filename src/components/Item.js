@@ -6,8 +6,8 @@ class Item extends Component {
         return(
             <div>
     <p>{item}</p>
-                <button onClick={itemDelete}>DELETE</button>
-                <button>EDIT</button>
+                <button className="btn btn-danger" onClick={itemDelete}>DELETE</button>
+                <button className="btn btn-outline-success">DONE</button>
             </div>
         );
     }
