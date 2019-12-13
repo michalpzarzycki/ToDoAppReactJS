@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Input from './components/Input';
 import List from './components/List';
 import styles from './App.module.css'
+import uuid from 'uuid';
 
 class App extends Component {
 
   state = {
     item: "HEJKA",
-    items: []
+    items: [],
+    id: uuid()
   }
 
   handleChange = (e) => {
@@ -20,7 +22,8 @@ handleSubmit = (e) => {
   e.preventDefault();
   
   const newItem = {
-    item: this.state.item
+    item: this.state.item,
+    id: uuid()
   }
     
   const updatedItems = [...this.state.items, newItem]
