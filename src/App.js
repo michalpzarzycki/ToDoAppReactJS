@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Input from './components/Input';
+import List from './components/List';
+import styles from './App.module.css'
 
-function App() {
+class App extends Component {
+
+  state = {
+    item: "HEJKA",
+    items: []
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      item: e.target.value
+    })
+  }
+
+handleSubmit = (e) => {
+  e.preventDefault();
+  
+  const newItem = {
+    item: this.state.item
+  }
+    
+  const updatedItems = [...this.state.items, newItem]
+
+  this.setState({
+    items: updatedItems
+  })
+}
+
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.mainDiv}>
+      <Input item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+      <List items={this.state.items}/>
     </div>
   );
+}
+ 
 }
 
 export default App;
