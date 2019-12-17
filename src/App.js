@@ -7,7 +7,7 @@ import uuid from 'uuid';
 class App extends Component {
 
   state = {
-    item: "HEJKA",
+    item: "",
     items: [],
     id: uuid()
   }
@@ -20,17 +20,21 @@ class App extends Component {
 
 handleSubmit = (e) => {
   e.preventDefault();
-  
+  console.log(this.state.item)
   const newItem = {
     item: this.state.item,
     id: uuid()
   }
-    
+   if(newItem.item) {
+     console.log("JUHU")
+   
   const updatedItems = [...this.state.items, newItem]
 
   this.setState({
-    items: updatedItems
+    items: updatedItems,
+    item:""
   })
+}
 }
 
 deleteAllList = () => {
