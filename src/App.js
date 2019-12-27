@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './components/Input';
 import List from './components/List';
+import DateInput from './components/DateInput'
 import styles from './App.module.css'
 import uuid from 'uuid';
 
@@ -60,6 +61,7 @@ render() {
   return (
     <div className={styles.mainDiv}>
       <Input item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+      <DateInput />
       <List items={this.state.items} deleteAllList={this.deleteAllList} itemDelete={this.itemDelete}/>
     </div>
   );
