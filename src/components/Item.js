@@ -4,10 +4,11 @@ import styles from "./Item.module.css";
 
 class Item extends Component {
     render() {
-        const { item, itemDelete } = this.props;
+        console.log("PROPSY", this.props)
+        const { item, date, itemDelete } = this.props;
         return(
             <div className={styles.mainDiv}>
-    <p>{item}</p>
+    <p>{`TASK: ${item} DATE: ${date}`}</p>
                 <button className="btn btn-danger" onClick={itemDelete}>DELETE</button>
                 <button className="btn btn-outline-success">DONE</button>
             </div>

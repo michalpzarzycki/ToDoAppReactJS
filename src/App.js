@@ -9,7 +9,8 @@ class App extends Component {
   state = {
     item: "",
     items: [],
-    id: uuid()
+    id: uuid(),
+    date: new Date()
   }
 
   handleChange = (e) => {
@@ -20,10 +21,15 @@ class App extends Component {
 
 handleSubmit = (e) => {
   e.preventDefault();
+  this.setState({
+    date: new Date()
+  })
+  console.log("DATA :", this.state.date)
   console.log(this.state.item)
   const newItem = {
     item: this.state.item,
-    id: uuid()
+    id: uuid(),
+    date: this.state.date
   }
    if(newItem.item) {
      console.log("JUHU")
@@ -32,7 +38,8 @@ handleSubmit = (e) => {
 
   this.setState({
     items: updatedItems,
-    item:""
+    item:"",
+    
   })
 }
 }
