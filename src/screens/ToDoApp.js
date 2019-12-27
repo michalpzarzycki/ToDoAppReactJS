@@ -1,9 +1,9 @@
+
 import React, { Component } from 'react';
-import Navbar from './components/Navbar'
-import ToDoApp from './screens/ToDoApp'
-import DeletedItems from './screens/DeletedItems'
-import DoneItems from './screens/DoneItems'
-import Dashboard from './screens/Dashboard'
+import Input from '../components/Input';
+import List from '../components/List';
+import DateInput from '../components/DateInput'
+import styles from './ToDoApp.module.css'
 import uuid from 'uuid';
 import {
   BrowserRouter as Router,
@@ -67,20 +67,14 @@ itemDelete = (id) => {
 }
 render() {
   return (
- 
-    <Router>
-    <Navbar/>
-    
-      <Switch>
-        <Route strict exact path="/todoapp" component={ToDoApp}/>
-        <Route strict exact path="/deleteditems" component={DeletedItems}/>
-        <Route strict exact path="/doneitems" component={DoneItems}/>
-        <Route strict exact path="/dashboard" component={Dashboard}/>
-        <Route strict exact path="/" component={ToDoApp}/>
-        <Route component={() => <h1>Nie ma takiej strony</h1>} />
-      </Switch>
+<div className={styles.mainDiv}>
 
-  </Router>
+<Input item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+<DateInput />
+<List items={this.state.items} deleteAllList={this.deleteAllList} itemDelete={this.itemDelete}/>
+</div>
+
+
   );
 }
  
