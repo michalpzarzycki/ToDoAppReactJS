@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from "./Item.module.css";
+import '../index.css'
 
 
 class Item extends Component {
@@ -10,10 +11,10 @@ class Item extends Component {
             <div className={styles.mainDiv}>
                 <div className={styles.taskDiv}>{item}</div>
                 <div className={styles.datesDiv}>
-                    <div>{date}</div>
-    <div>{deadline}</div>
+                    <div>Data dodanie:{date}</div>
+    <div>Deadline:{deadline}</div>
                 </div>
-        <div className={styles.rateDiv}>{value}</div>
+        <div className={styles.rateDiv, `bgColor${value}`}>{value}</div>
                 <div className={styles.btnsDiv}>
                     <div className={styles.leftBtns}>
                         <button className="btn btn-danger" onClick={itemDelete}>DELETE</button>

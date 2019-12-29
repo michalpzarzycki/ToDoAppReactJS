@@ -59,6 +59,8 @@ handleDateChange = (date) => {
  
 }
 
+
+
 handleSubmit = (e) => {
     console.log("VALUE W SUBMICIE: " ,  this.state.value)
     console.log("DEADLINE W SUBMICIE", this.state.deadline)
