@@ -76,7 +76,7 @@ handleSubmit = (e) => {
     id: uuid(),
     date: this.state.date,
     value: this.state.value,
-    deadline: this.state.deadline.toString()
+    deadline: this.state.deadline.toLocaleString('pl', options).toString()
   }
 
   console.log(newItem)
