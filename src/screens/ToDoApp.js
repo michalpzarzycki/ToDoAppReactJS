@@ -10,16 +10,27 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+   
+const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+};
 
 class App extends Component {
-
+ 
   state = {
     item: "",
     items: [],
     id: uuid(),
-    date: new Date(), 
+    date: new Date().toLocaleString('pl', options), 
     
   }
+     
+
 
   handleChange = (e) => {
     this.setState({
@@ -30,10 +41,17 @@ class App extends Component {
 handleSubmit = (e) => {
   e.preventDefault();
   console.log("STANY PO KLIKNIECIU", this.state)
+  let now = new Date();
+
+
+
+now.toLocaleString('pl', options);
+console.log("NOWA DATA", now.toLocaleString('pl', options))
+console.log("DATA STARA:", this.state.date)
   this.setState({
-    date: new Date()
+    date: new Date().toLocaleString('pl', options)
   })
-  console.log("DATA :", this.state.date)
+  console.log("DATA NOWA:", this.state.date)
   console.log(this.state.item)
   const newItem = {
     item: this.state.item,
