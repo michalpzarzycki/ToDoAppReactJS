@@ -5,7 +5,7 @@ import styles from "./Item.module.css";
 class Item extends Component {
     render() {
         console.log("PROPSY", this.props)
-        const { item, date, itemDelete } = this.props;
+        const { item, date, itemDelete, value } = this.props;
         return (
             <div className={styles.mainDiv}>
                 <div className={styles.taskDiv}>{item}</div>
@@ -13,7 +13,7 @@ class Item extends Component {
                     <div>{date}</div>
                     <div>DEADLINE</div>
                 </div>
-                <div className={styles.rateDiv}>5</div>
+        <div className={styles.rateDiv}>{value}</div>
                 <div className={styles.btnsDiv}>
                     <div className={styles.leftBtns}>
                         <button className="btn btn-danger" onClick={itemDelete}>DELETE</button>
