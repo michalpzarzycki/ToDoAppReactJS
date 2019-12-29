@@ -6,11 +6,25 @@ class Item extends Component {
     render() {
         console.log("PROPSY", this.props)
         const { item, date, itemDelete } = this.props;
-        return(
+        return (
             <div className={styles.mainDiv}>
-    <p>{`TASK: ${item} DATE: ${date}`}</p>
-                <button className="btn btn-danger" onClick={itemDelete}>DELETE</button>
-                <button className="btn btn-outline-success">DONE</button>
+                <div className={styles.taskDiv}>{item}</div>
+                <div className={styles.datesDiv}>
+                    <div>{date}</div>
+                    <div>DEADLINE</div>
+                </div>
+                <div className={styles.rateDiv}>5</div>
+                <div className={styles.btnsDiv}>
+                    <div className={styles.leftBtns}>
+                        <button className="btn btn-danger" onClick={itemDelete}>DELETE</button>
+                        <button className="btn btn-outline-info">EDIT</button>
+                    </div>
+                   <div className={styles.rightBtns}>
+                   <button className="btn btn-outline-success">DONE</button>
+                   </div>
+                    
+                </div>
+
             </div>
         );
     }
