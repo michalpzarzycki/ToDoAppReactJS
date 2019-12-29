@@ -10,6 +10,7 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+import styles from './App.module.css'
 
 class App extends Component {
 
@@ -70,15 +71,18 @@ render() {
  
     <Router>
     <Navbar/>
-    
-      <Switch>
+    <div className={styles.routeDiv}> <Switch>
+        
         <Route strict exact path="/todoapp" component={ToDoApp}/>
         <Route strict exact path="/deleteditems" component={DeletedItems}/>
         <Route strict exact path="/doneitems" component={DoneItems}/>
         <Route strict exact path="/dashboard" component={Dashboard}/>
         <Route strict exact path="/" component={ToDoApp}/>
         <Route component={() => <h1>Nie ma takiej strony</h1>} />
-      </Switch>
+      
+      
+      </Switch></div>
+     
 
   </Router>
   );
