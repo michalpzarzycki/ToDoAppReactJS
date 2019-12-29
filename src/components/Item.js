@@ -5,13 +5,13 @@ import styles from "./Item.module.css";
 class Item extends Component {
     render() {
         console.log("PROPSY", this.props)
-        const { item, date, itemDelete, value } = this.props;
+        const { item, date, itemDelete, value, deadline } = this.props;
         return (
             <div className={styles.mainDiv}>
                 <div className={styles.taskDiv}>{item}</div>
                 <div className={styles.datesDiv}>
                     <div>{date}</div>
-                    <div>DEADLINE</div>
+    <div>{deadline}</div>
                 </div>
         <div className={styles.rateDiv}>{value}</div>
                 <div className={styles.btnsDiv}>

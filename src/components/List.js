@@ -10,7 +10,7 @@ class List extends Component {
               {
     items.map(item => {
         return(
-            <Item key={item.id} item={item.item} id={item.id} date={item.date} value={item.value} itemDelete={() => itemDelete(item.id)}/>
+            <Item key={item.id} item={item.item} id={item.id} date={item.date} value={item.value} deadline={item.deadline}  itemDelete={() => itemDelete(item.id)}/>
             
         )
     })

@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import Input from '../components/Input';
 import List from '../components/List';
-import DateInput from '../components/DateInput'
 import styles from './ToDoApp.module.css'
 import uuid from 'uuid';
 import {
@@ -10,6 +9,8 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
    
 const options = {
     weekday: 'long',
@@ -27,7 +28,8 @@ class App extends Component {
     items: [],
     id: uuid(),
     date: new Date().toLocaleString('pl', options),
-    value: "1" 
+    value: "1",
+    deadline: new Date()
     
   }
      
@@ -46,11 +48,20 @@ class App extends Component {
   
     value: e.target.value
   })
-  console.log("VALUE : " ,  this.state.value)
+ 
+}
+handleDateChange = (date) => {
+    console.log("e", date.toString())
+    this.setState({
+        deadline: date.toString()
+      });
+ 
+ 
 }
 
 handleSubmit = (e) => {
     console.log("VALUE W SUBMICIE: " ,  this.state.value)
+    console.log("DEADLINE W SUBMICIE", this.state.deadline)
 
   e.preventDefault();
 
@@ -58,12 +69,17 @@ handleSubmit = (e) => {
     date: new Date().toLocaleString('pl', options)
   })
 
+  console.log("DEADLINE:w subic", this.state.deadline )
+
   const newItem = {
     item: this.state.item,
     id: uuid(),
     date: this.state.date,
-    value: this.state.value
+    value: this.state.value,
+    deadline: this.state.deadline.toString()
   }
+
+  console.log(newItem)
    if(newItem.item) {
    
   const updatedItems = [...this.state.items, newItem]
@@ -72,7 +88,8 @@ handleSubmit = (e) => {
     items: updatedItems,
     item:"",
     date: new Date().toLocaleString('pl', options),
-    value: "1"
+    value: "1",
+    deadline:  new Date()
     
   })
 }
@@ -93,9 +110,13 @@ itemDelete = (id) => {
 render() {
   return (
 <div className={styles.mainDiv}>
-
+  <div>{this.state.deadline.toString()}</div>
 <Input item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-<DateInput />
+<DatePicker
+                         dateFormat="mm-dd-yyyy"
+                        selected={this.state.deadline}
+                        onChange={date => this.setState({deadline: date})}
+                        />
 <label>
           Wybierz poziom trudności/złożoności taska:
           <select value={this.state.value} onChange={this.handleSelectChange}>
