@@ -10,6 +10,7 @@ import {
   Switch
 } from "react-router-dom";
 import DatePicker from "react-datepicker";
+import { deleted } from '../Context'
 import "react-datepicker/dist/react-datepicker.css";
    
 const options = {
@@ -29,7 +30,8 @@ class App extends Component {
     id: uuid(),
     date: new Date().toLocaleString('pl', options),
     value: "1",
-    deadline: new Date()
+    deadline: new Date(),
+    deleted: deleted
     
   }
      
@@ -37,6 +39,7 @@ class App extends Component {
 
   handleChange = (e) => {
       console.log("e", e)
+      console.log("deleted ",deleted)
     this.setState({
       item: e.target.value,
     })
@@ -104,9 +107,13 @@ deleteAllList = () => {
 }
 
 itemDelete = (id) => {
+  let deletedItem = this.state.items.filter(item => (item.id == id))
+  console.log("DELETED ITEM: ", deletedItem)
+
   const filteredItems = this.state.items.filter(item => (item.id !== id))
   this.setState({
-    items: filteredItems
+    items: filteredItems,
+    deleted: [deletedItem]
   })
 }
 render() {

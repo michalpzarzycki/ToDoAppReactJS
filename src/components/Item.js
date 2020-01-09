@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import styles from "./Item.module.css";
+import { deleted as lol } from '../Context'
 import '../index.css'
 
 
 class Item extends Component {
+
     render() {
-        console.log("PROPSY", this.props)
+        const { Provider } = lol;
+
         const { item, date, itemDelete, value, deadline } = this.props;
         return (
+            <Provider value={item}>
             <div className={styles.mainDiv}>
                 <div className={styles.taskDiv}>{item}</div>
                 <div className={styles.datesDiv}>
@@ -27,8 +31,15 @@ class Item extends Component {
                 </div>
 
             </div>
+            </Provider>
         );
     }
 }
-
+{/* <Provider value={this.state.color}>
+<Consumer>
+  {(color) => <p style={{ color }}>HELLO FROM CONSUMER</p>}
+</Consumer>
+          <WelcomeText />
+          <button onClick={this.onColorChange}>ZMIEÑ KOLOR</button>
+        </Provider> */}
 export default Item;
