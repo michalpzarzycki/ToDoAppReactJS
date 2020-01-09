@@ -8,9 +8,8 @@ function DeletedItems() {
   const { Consumer, Provider } = deleted
   return (
    <div>
-     <Consumer>{(deleted) =>  <p>{deleted}</p>}
-
- 
+     <Consumer>
+       {(deleted) =>  <p>{deleted}</p>}
      </Consumer>
       
    </div>
