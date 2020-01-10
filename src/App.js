@@ -11,6 +11,7 @@ import {
   Switch
 } from "react-router-dom";
 import styles from './App.module.css'
+import fire from './config/fire'
 
 
 class App extends Component {
@@ -21,6 +22,19 @@ class App extends Component {
     id: uuid(),
     date: new Date(), 
     
+  }
+
+  authListener() {
+     fire.auth().onAuthStateChanged((user) => {
+       console.log(user);
+       if(user) {
+         this.setState({ user });
+         localStorage.setItem('user', user.uid);
+       } else {
+         this.setState({ user:null });
+         localStorage.removeItem('user');
+       }
+     })
   }
 
   handleChange = (e) => {
