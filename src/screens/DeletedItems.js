@@ -1,19 +1,22 @@
 
-import React from 'react';
-import { deleted } from '../Context'
+import React, { Component } from 'react';
+import { InfoConsumer } from '../Context'
 
 
 
-function DeletedItems() {
-  const { Consumer, Provider } = deleted
-  return (
-   <div>
-     <Consumer>
-       {(deleted) =>  <p>{deleted}</p>}
-     </Consumer>
-      
-   </div>
-  );
+class DeletedItems extends Component {
+
+  render = () => {
+    return(
+      <div>
+      <InfoConsumer>
+    {(x) => <p>{x}</p>}
+      </InfoConsumer>
+       
+      </div>
+    
+    )
+  }
 }
 
 export default DeletedItems;

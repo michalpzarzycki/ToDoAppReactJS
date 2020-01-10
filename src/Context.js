@@ -1,3 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export  let deleted = React.createContext(['jaaa', 'tyyyy', 'myyyy']);
+const InfoContext = React.createContext();
+const InfoConsumer = InfoContext.Consumer;
+
+class InfoProvider extends Component {
+    render = () => {
+        return (
+            <InfoContext.Provider value="HELLO">
+                {this.props.children}
+            </InfoContext.Provider>
+        )
+    }
+}
+
+
+export  { InfoProvider, InfoConsumer }
