@@ -10,14 +10,14 @@ class DoneItems extends Component {
     }
   render = () => {
 
-    changeValue = () => {
-      let newName = 
-    }
+    // changeValue = () => {
+    //   this.setState({newName:""})
+    //     }
     return (
       <div>
-        <InfoProvider value={this.state.newName}>
+        {/* <InfoProvider value={this.state.newName}>
         <button onClick={this.changeValue}>KLIK</button>
-        </InfoProvider>
+        </InfoProvider> */}
         
       </div>
     )

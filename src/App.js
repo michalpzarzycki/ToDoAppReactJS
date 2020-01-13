@@ -20,10 +20,13 @@ class App extends Component {
     item: "",
     items: [],
     id: uuid(),
-    date: new Date(), 
+    date: new Date(),
+    user: {} 
     
   }
-
+  componentDidMount() {
+     this.authListener();
+  }
   authListener() {
      fire.auth().onAuthStateChanged((user) => {
        console.log(user);
@@ -87,7 +90,9 @@ render() {
  
     <Router>
     <Navbar/>
-    <div className={styles.routeDiv}> <Switch>
+    <div className={styles.routeDiv}>
+  <div>{this.state.user ? (<p>LOOOOOL</p>) : (<p>XDDDD</p>)}</div>
+       <Switch>
         
         <Route strict exact path="/todoapp" component={ToDoApp}/>
         <Route strict exact path="/deleteditems" component={DeletedItems}/>

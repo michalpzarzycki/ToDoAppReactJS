@@ -6,7 +6,7 @@ class List extends Component {
         const { items, deleteAllList, itemDelete } = this.props;
         console.log(items);
         return(
-            <div>
+            <div style={{  overflow:"scroll"}}>
               {
     items.map(item => {
         return(
